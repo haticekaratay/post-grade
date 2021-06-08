@@ -10,7 +10,7 @@ Teacher.create(username:"Mrs.Science", email: "teacher1@email.com", password: "s
 
 Life = Course.create(name: "Life Science", description:"The Study of Living Organisms", teacher_id: 1)
 Physical = Course.create(name: "Physical Science", description:"The Study of Matter and Energy", teacher_id: 1)
-Algebra =Course.create(name: "Algebra", description:"Algebra is the study of mathematical symbols and the rules for manipulating these symbols", teacher_id: 2)
+Algebra =Course.create(name: "Algebra", description:"Algebra is the study of mathematical symbols and the rules for manipulating these symbols", teacher_id: 1)
 
 
 Student.create(first_name: "Selim", last_name: "Sessiz", grade_level:7, gender: "male", birthday: 12.years.ago, teacher_id:1) #1
@@ -31,6 +31,85 @@ Student.create(first_name: "Cenk", last_name: "Toprak", grade_level:8, gender: "
 Student.create(first_name: "Emre", last_name: "Erkek", grade_level:8, gender: "male", birthday: 13.years.ago + 3.months + 1.day, teacher_id:1)
 Student.create(first_name: "Azra", last_name: "Bayan", grade_level:8, gender: "female", birthday: 13.years.ago + 3.months + 1.day, teacher_id:1)
 
+(1..10).each do |i|
+    StudentCourse.create(student_id:"#{i}", course_id:1, prerequisite: false)
+end 
+
+StudentCourse.create(student_id:11, course_id:3, prerequisite: true)
+StudentCourse.create(student_id:12, course_id:3, prerequisite: true)
+StudentCourse.create(student_id:13, course_id:3, prerequisite: true)
+
+StudentCourse.create(student_id:11, course_id:2, prerequisite: false)
+StudentCourse.create(student_id:12, course_id:2, prerequisite: false)
+StudentCourse.create(student_id:13, course_id:2, prerequisite: false)
+StudentCourse.create(student_id:14, course_id:2, prerequisite: false)
+StudentCourse.create(student_id:15, course_id:2, prerequisite: false)
+
+Assignment.create(name:"Plant Cells Quiz", description:"Measures students learning on Plant Cells, Multiple choice.", due_date: 7.days.after, score: 20, assignment_type: "Quiz")
+Assignment.create(name:"Plant Cells Lab Questions", description:"Complete the follow up questions on the lab package", due_date: 4.days.after, score: 20, assignment_type:"Homework" )
+Assignment.create(name:"What you know about plants", description:"Measures students prior knowledge about plants.Students get a completion grade on this assignment", due_date: 10.days.ago, score: 10, assignment_type:"Classwork")
+Assignment.create(name:"Onion Cells Lab", description:" Complete the lab questions on the package", due_date: 1.days.after, score: 10, assignment_type:"Classwork")
+
+Assignment.create(name:"Inertia quiz", description:"Measures students learning on Newtons First Law of Motion, Multiple choice.", due_date: 7.days.after, score: 20, assignment_type:"Quiz")
+Assignment.create(name:"Inertia Lab Questions", description:"Complete the follow up questions on the lab package", due_date: 4.days.after, score: 20, assignment_type:"Homework" )
+Assignment.create(name:"What you know about inertia", description:"Measures students prior knowledge Newton's first law.Students get a completion grade on this assignment", due_date: 10.days.ago, score: 10, assignment_type:"Classwork")
+Assignment.create(name:"Mouse Car Built", description:" Built a car solely powered by a mouse trap", due_date: 1.days.after, score: 10 ,assignment_type:"Classwork")
+
+Assignment.create(name:"Solving Equations Quiz", description:"Measures students learning on Solving Equations, Multiple choice.", due_date: 7.days.after, score: 20, assignment_type:"Quiz")
+Assignment.create(name:"Solving inequalities Questions", description:"Complete the follow up questions on the package", due_date: 4.days.after, score: 20, assignment_type:"Homework" )
+Assignment.create(name:"What you know about inequalities", description:"Measures students prior knowledge .Students get a completion grade on this assignment", due_date: 10.days.ago, score: 10, assignment_type:"Classwork")
+Assignment.create(name:"Solving Equations test", description:" Unit Test", due_date: 1.days.after, score: 100, assignment_type:"Exam")
+
+(1..10).each do |i|
+    StudentAssignment.create(student_id:"#{i}", assignment_id:1)
+end 
+
+(1..10).each do |i|
+    StudentAssignment.create(student_id:"#{i}", assignment_id:2)
+end 
+
+(1..5).each do |i|
+    StudentAssignment.create(student_id:"#{i}", assignment_id:3)
+end
+
+(6..10).each do |i|
+    StudentAssignment.create(student_id:"#{i}", assignment_id:3, is_applicable?: false)
+end 
+
+(1..10).each do |i|
+    StudentAssignment.create(student_id:"#{i}", assignment_id:4)
+end 
+
+
+(11..15).each do |i|
+    StudentAssignment.create(student_id:"#{i}", assignment_id:5)
+end 
+
+(11..15).each do |i|
+    StudentAssignment.create(student_id:"#{i}", assignment_id:6)
+end
+
+(11..15).each do |i|
+    StudentAssignment.create(student_id:"#{i}", assignment_id:7)
+end
+(11..15).each do |i|
+    StudentAssignment.create(student_id:"#{i}", assignment_id:8)
+end
+(11..15).each do |i|
+    StudentAssignment.create(student_id:"#{i}", assignment_id:9)
+end
+
+(11..15).each do |i|
+    StudentAssignment.create(student_id:"#{i}", assignment_id:10)
+end
+
+(11..15).each do |i|
+    StudentAssignment.create(student_id:"#{i}", assignment_id:11)
+end
+
+(11..15).each do |i|
+    StudentAssignment.create(student_id:"#{i}", assignment_id:12)
+end
 
 
 
