@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
   root 'sessions#home'
+
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
+  get '/logout' => 'sessions#destroy'
+
   resources :students
   resources :courses
   resources :teachers
