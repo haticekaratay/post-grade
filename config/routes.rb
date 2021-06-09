@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
 
+  get '/signup' => 'teachers#new'
+  post '/signup' => 'teachers#create'
+
   resources :students
   resources :courses
   resources :teachers
