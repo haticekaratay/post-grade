@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root 'sessions#home'
 
+  get 'auth/:provider/callback' => 'sessions#create_with_google_omniauth'
+
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
