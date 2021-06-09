@@ -34,6 +34,8 @@ class SessionsController < ApplicationController
     end
 
     def destroy
+        session.delete(:teacher_id)
+        redirect_to root_path
     end
 
     private
