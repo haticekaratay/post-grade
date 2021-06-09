@@ -2,11 +2,12 @@
 
 <%= form_for :teacher, url: login_path do |f| %>
   
-  <%= f.label :email %>
-  <%= f.text_field :email%>
+  <%= f.label :email %><br>
+  <%= f.text_field :email%><br>
 
-  <%= f.label :password %>
-  <%= f.text_field :password%>
+  <%= f.label :password %><br>
+  <%= f.text_field :password%><br>
 
-  <%= f.submit "Log In"%>
+  <%= f.submit "Log In"%><br> 
 <% end %>
+<br><%= button_to 'Continue with Gmail', '/auth/google_oauth2'%>
