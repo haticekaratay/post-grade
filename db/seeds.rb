@@ -44,71 +44,70 @@ StudentCourse.create(student_id:12, course_id:2, prerequisite: false)
 StudentCourse.create(student_id:13, course_id:2, prerequisite: false)
 StudentCourse.create(student_id:14, course_id:2, prerequisite: false)
 StudentCourse.create(student_id:15, course_id:2, prerequisite: false)
+Assignment.create(name:"Plant Cells Quiz", description:"Measures students learning on Plant Cells, Multiple choice.", due_date: 7.days.after, max: 20, assignment_type: "Quiz", course_id: 1)
+Assignment.create(name:"Plant Cells Lab Questions", description:"Complete the follow up questions on the lab package", due_date: 4.days.after, max: 20, assignment_type:"Homework" , course_id: 1)
+Assignment.create(name:"What you know about plants", description:"Measures students prior knowledge about plants.Students get a completion grade on this assignment", due_date: 10.days.ago, max: 10, assignment_type:"Classwork", course_id: 1)
+Assignment.create(name:"Onion Cells Lab", description:" Complete the lab questions on the package", due_date: 1.days.after, max: 10, assignment_type:"Classwork", course_id: 1)
 
-Assignment.create(name:"Plant Cells Quiz", description:"Measures students learning on Plant Cells, Multiple choice.", due_date: 7.days.after, score: 20, assignment_type: "Quiz")
-Assignment.create(name:"Plant Cells Lab Questions", description:"Complete the follow up questions on the lab package", due_date: 4.days.after, score: 20, assignment_type:"Homework" )
-Assignment.create(name:"What you know about plants", description:"Measures students prior knowledge about plants.Students get a completion grade on this assignment", due_date: 10.days.ago, score: 10, assignment_type:"Classwork")
-Assignment.create(name:"Onion Cells Lab", description:" Complete the lab questions on the package", due_date: 1.days.after, score: 10, assignment_type:"Classwork")
+Assignment.create(name:"Inertia quiz", description:"Measures students learning on Newtons First Law of Motion, Multiple choice.", due_date: 7.days.after, max: 20, assignment_type:"Quiz" , course_id: 2)
+Assignment.create(name:"Inertia Lab Questions", description:"Complete the follow up questions on the lab package", due_date: 4.days.after, max: 20, assignment_type:"Homework"  , course_id: 2)
+Assignment.create(name:"What you know about inertia", description:"Measures students prior knowledge Newton's first law.Students get a completion grade on this assignment", due_date: 10.days.ago, max: 10, assignment_type:"Classwork" , course_id: 2)
+Assignment.create(name:"Mouse Car Built", description:" Built a car solely powered by a mouse trap", due_date: 1.days.after, max: 10 ,assignment_type:"Classwork" , course_id: 2)
 
-Assignment.create(name:"Inertia quiz", description:"Measures students learning on Newtons First Law of Motion, Multiple choice.", due_date: 7.days.after, score: 20, assignment_type:"Quiz")
-Assignment.create(name:"Inertia Lab Questions", description:"Complete the follow up questions on the lab package", due_date: 4.days.after, score: 20, assignment_type:"Homework" )
-Assignment.create(name:"What you know about inertia", description:"Measures students prior knowledge Newton's first law.Students get a completion grade on this assignment", due_date: 10.days.ago, score: 10, assignment_type:"Classwork")
-Assignment.create(name:"Mouse Car Built", description:" Built a car solely powered by a mouse trap", due_date: 1.days.after, score: 10 ,assignment_type:"Classwork")
-
-Assignment.create(name:"Solving Equations Quiz", description:"Measures students learning on Solving Equations, Multiple choice.", due_date: 7.days.after, score: 20, assignment_type:"Quiz")
-Assignment.create(name:"Solving inequalities Questions", description:"Complete the follow up questions on the package", due_date: 4.days.after, score: 20, assignment_type:"Homework" )
-Assignment.create(name:"What you know about inequalities", description:"Measures students prior knowledge .Students get a completion grade on this assignment", due_date: 10.days.ago, score: 10, assignment_type:"Classwork")
-Assignment.create(name:"Solving Equations test", description:" Unit Test", due_date: 1.days.after, score: 100, assignment_type:"Exam")
+Assignment.create(name:"Solving Equations Quiz", description:"Measures students learning on Solving Equations, Multiple choice.", due_date: 7.days.after, max: 20, assignment_type:"Quiz",course_id: 3)
+Assignment.create(name:"Solving inequalities Questions", description:"Complete the follow up questions on the package", due_date: 4.days.after, max: 20, assignment_type:"Homework" ,course_id: 3)
+Assignment.create(name:"What you know about inequalities", description:"Measures students prior knowledge .Students get a completion grade on this assignment", due_date: 10.days.ago, max: 10, assignment_type:"Classwork",course_id: 3)
+Assignment.create(name:"Solving Equations test", description:" Unit Test", due_date: 1.days.after, max: 100, assignment_type:"Exam",course_id: 3)
 
 (1..10).each do |i|
-    StudentAssignment.create(student_id:"#{i}", assignment_id:1)
+    StudentAssignment.create(student_id:"#{i}", assignment_id:1, grade: 10+i)
 end 
 
 (1..10).each do |i|
-    StudentAssignment.create(student_id:"#{i}", assignment_id:2)
+    StudentAssignment.create(student_id:"#{i}", assignment_id:2, grade: 20 - i )
 end 
 
 (1..5).each do |i|
-    StudentAssignment.create(student_id:"#{i}", assignment_id:3)
+    StudentAssignment.create(student_id:"#{i}", assignment_id:3 , grade: 5 + i)
 end
 
 (6..10).each do |i|
-    StudentAssignment.create(student_id:"#{i}", assignment_id:3, is_applicable?: false)
+    StudentAssignment.create(student_id:"#{i}", assignment_id:3, grade: i, is_applicable?: false)
 end 
 
 (1..10).each do |i|
-    StudentAssignment.create(student_id:"#{i}", assignment_id:4)
+    StudentAssignment.create(student_id:"#{i}", assignment_id:4, grade: 10)
 end 
 
 
 (11..15).each do |i|
-    StudentAssignment.create(student_id:"#{i}", assignment_id:5)
+    StudentAssignment.create(student_id:"#{i}", assignment_id:5 , grade: 20)
 end 
 
 (11..15).each do |i|
-    StudentAssignment.create(student_id:"#{i}", assignment_id:6)
+    StudentAssignment.create(student_id:"#{i}", assignment_id:6, grade: 18)
 end
 
 (11..15).each do |i|
-    StudentAssignment.create(student_id:"#{i}", assignment_id:7)
+    StudentAssignment.create(student_id:"#{i}", assignment_id:7, grade: 10)
 end
 (11..15).each do |i|
-    StudentAssignment.create(student_id:"#{i}", assignment_id:8)
+    StudentAssignment.create(student_id:"#{i}", assignment_id:8, grade: 9)
 end
 (11..15).each do |i|
-    StudentAssignment.create(student_id:"#{i}", assignment_id:9)
-end
-
-(11..15).each do |i|
-    StudentAssignment.create(student_id:"#{i}", assignment_id:10)
+    StudentAssignment.create(student_id:"#{i}", assignment_id:9, grade: 20)
 end
 
 (11..15).each do |i|
-    StudentAssignment.create(student_id:"#{i}", assignment_id:11)
+    StudentAssignment.create(student_id:"#{i}", assignment_id:10 ,grade: 18)
 end
 
 (11..15).each do |i|
-    StudentAssignment.create(student_id:"#{i}", assignment_id:12)
+    StudentAssignment.create(student_id:"#{i}", assignment_id:11, grade: 9)
+end
+
+(11..15).each do |i|
+    StudentAssignment.create(student_id:"#{i}", assignment_id:12, grade: 80 + 2* i)
 end
 
 
