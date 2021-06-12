@@ -1,0 +1,23 @@
+<table>
+    <tr>
+        <th>Student Name</th>
+        <% @assignments.each do |assignment| %>
+            <th><%= assignment.id %> - <%= assignment.name %></th>
+        <% end %>
+        <th>Average</th>
+    </tr>
+    
+        <% @students.each do |student| %>
+    <tr>
+        <td>
+        <%= student.id %> - 
+        <%= student.full_name %>
+        </td>
+        <% @assignments.each do |assignment| %>
+        <td><%= student.student_grade_by_assignment(assignment,student) %></td>
+        <% end %>
+        <% end %> 
+    </tr>
+
+
+</table>
