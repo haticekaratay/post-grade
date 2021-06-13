@@ -14,6 +14,9 @@ Rails.application.routes.draw do
   resources :courses do 
      resources :students, only: :index
   end
+  resources :courses do
+    resources :assignments, only: :new
+  end
   resources :teachers
   resources :assignments
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
