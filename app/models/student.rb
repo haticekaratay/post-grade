@@ -9,7 +9,7 @@ class Student < ApplicationRecord
     end
     
     def student_grade_by_assignment(assignment,student)
-        StudentAssignment.where(["assignment_id = #{assignment.id} and student_id = #{student.id}"]).grade
+        StudentAssignment.where(["assignment_id = #{assignment.id} and student_id = #{student.id}"]).first.grade
     end
     
 end
