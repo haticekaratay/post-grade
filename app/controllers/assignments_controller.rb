@@ -21,6 +21,23 @@ class AssignmentsController < ApplicationController
         end
     end
 
+    def edit
+        @courses= Course.all
+        @assignment = Assignment.find(params[:id])
+    end
+    
+    def update
+        @courses= Course.all
+        @assignment = Assignment.find(params[:id])
+        @assignment.update(assignment_params)
+        if @assignment.valid?
+            redirect_to assignment_path(@assignment)
+        else
+            render :edit
+        end
+        
+    end
+
     private
 
     def assignment_params
