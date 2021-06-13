@@ -1,12 +1,16 @@
-<table>
+Welcome to <%= @course.name %> Class Gradebook
+<%= link_to "Add Assignment", new_assignment_path %>
+<table class="table table-hover">
+  <thead>
     <tr>
-        <th>Student Name</th>
+        <th scope="col">Student Name</th>
         <% @assignments.each do |assignment| %>
-            <th><%= assignment.id %> - <%= assignment.name %></th>
+            <th scope="col"><%= assignment.id %> - <%= assignment.name %></th>
         <% end %>
-        <th>Average</th>
+        <th scope="col" >Average</th>
     </tr>
-    
+  </thead>
+  <tbody>
         <% @students.each do |student| %>
     <tr>
         <td>
@@ -18,6 +22,5 @@
         <% end %>
         <% end %> 
     </tr>
-
-
+ </tbody>
 </table>
