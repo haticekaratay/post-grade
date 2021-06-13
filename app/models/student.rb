@@ -9,7 +9,12 @@ class Student < ApplicationRecord
     end
     
     def student_grade_by_assignment(assignment,student)
-        StudentAssignment.where(["assignment_id = #{assignment.id} and student_id = #{student.id}"]).first.grade
+        student_grade_array = StudentAssignment.where(["assignment_id = #{assignment.id} and student_id = #{student.id}"])
+        if student_grade_array.length == 0
+            "N/A"
+        else
+            student_grade_array.first.grade
+        end 
     end
     
 end
