@@ -11,5 +11,8 @@
     <%= f.label :due_date %>
     <%= f.date_field  :due_date%>
 
+    <%= f.label :course_id %>
+    <%= f.collection_select :course_id, @courses, :id, :name %>
+
     <%= f.submit %>
 <% end %>
