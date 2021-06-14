@@ -39,6 +39,19 @@ class AssignmentsController < ApplicationController
         
     end
 
+    def index
+        if params[:course_id]
+            course = Course.find(params[:course_id])
+            @assignments = course.assignments
+        end
+    end 
+
+    def destroy
+        @assignment = Assignment.find(params[:id])
+        @assignment.destroy
+        redirect_to course_assignments_path
+    end
+
     private
 
     def assignment_params
