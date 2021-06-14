@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
-  delete '/logout' => 'sessions#destroy'
+  get '/logout' => 'sessions#destroy'
 
   get '/signup' => 'teachers#new'
   post '/signup' => 'teachers#create'
@@ -15,7 +15,7 @@ Rails.application.routes.draw do
      resources :students, only: :index
   end
   resources :courses do
-    resources :assignments, only: :new
+    resources :assignments, only: [:new, :index]
   end
   resources :teachers
   resources :assignments
