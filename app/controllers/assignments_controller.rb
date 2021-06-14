@@ -13,11 +13,12 @@ class AssignmentsController < ApplicationController
     end
 
     def create
-        assignment = Assignment.new(assignment_params)
-        if assignment.save
+        @assignment = Assignment.new(assignment_params)
+        @courses = Course.all
+        if @assignment.save
             redirect_to assignment_path(assignment)           
         else
-            redirect_to new_assignment_path
+            render :new
         end
     end
 
