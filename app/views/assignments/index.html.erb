@@ -1,4 +1,5 @@
 
 <% @assignments.each do |assignment| %>
-   <p> <%= link_to assignment.name, assignment_path(assignment) %>  -----  <%= link_to "delete" , assignment_path(assignment), method: "delete" %> </p>
+   <%= link_to assignment.name, assignment_path(assignment) %>  -----  
+   |<%= link_to "Edit ", edit_assignment_path(assignment) %>  <%= button_to "Delete", assignment_path(assignment), method: :delete %>
 <% end %>
