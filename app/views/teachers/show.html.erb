@@ -1,9 +1,26 @@
-<h1><%=@teacher.username %></h1>
-Your courses<br>
-<% @teacher.courses.each do |course|%>
-    <%= link_to course.name, course_path(course) %><br>
-<%end %>
 
-
-
-
+<div class="container ">
+    <div class="row">
+        <h1 class="header">Dashboard</h1>
+        <hr>
+        <% @teacher.courses.each do |course|%>
+            <div class="col-md-3">
+            <div class="dashboard">
+                <div id="card">
+                    <div class="card-body">
+                        <h5 class="card-title"><%= link_to course.name, course_path(course) %></h5>
+                        <p class="card-text"><%=course.description %></p>
+                        
+                        <button type="button">
+                            <%= link_to "Gradebook", course_students_path(course)%>
+                        </button>
+                         <button type="button">
+                            <%= link_to "Course Info", course_path(course)%>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            </div>
+        <%end %>
+    </div>
+</div>
