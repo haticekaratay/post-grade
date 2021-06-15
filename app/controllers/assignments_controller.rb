@@ -16,7 +16,7 @@ class AssignmentsController < ApplicationController
         @assignment = Assignment.new(assignment_params)
         @courses = Course.all
         if @assignment.save
-            redirect_to assignment_path(assignment)           
+            redirect_to assignment_path(@assignment)           
         else
             render :new
         end
@@ -43,13 +43,16 @@ class AssignmentsController < ApplicationController
         if params[:course_id]
             course = Course.find(params[:course_id])
             @assignments = course.assignments
+        else
+            @assignments = Assignment.all
         end
     end 
 
     def destroy
+        #binding.pry
         @assignment = Assignment.find(params[:id])
         @assignment.destroy
-        redirect_to course_assignments_path
+        redirect_to course_assignments_path(@assignment.course)
     end
 
     private
