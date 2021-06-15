@@ -1,6 +1,6 @@
 class Assignment < ApplicationRecord
     belongs_to :course
-    has_many :student_assignments
+    has_many :student_assignments , dependent: :destroy
     has_many :students, through: :student_assignments
     
     validates_presence_of :name, :description, :max, :due_date
