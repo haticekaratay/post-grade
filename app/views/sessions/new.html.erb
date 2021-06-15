@@ -1,13 +1,16 @@
-<h1>Log in Below</h1>
+<div class="text-center">
 
-<%= form_for :teacher, url: login_path do |f| %>
-  
-  <%= f.label :email %><br>
-  <%= f.text_field :email%><br>
+  <%= form_for :teacher, url: login_path do |f| %>
+    <div class="form-signin">
+    <%= f.label :email %><br>
+    <%= f.text_field :email%><br>
+    </div>
+    <%= f.label :password %><br>
+    <%= f.password_field :password%><br>
 
-  <%= f.label :password %><br>
-  <%= f.text_field :password%><br>
+    <%= f.submit "Log In"%><br> 
+  <% end %>
+  <br><%= button_to 'Continue with Gmail', '/auth/google_oauth2'%>
+<div>
 
-  <%= f.submit "Log In"%><br> 
-<% end %>
-<br><%= button_to 'Continue with Gmail', '/auth/google_oauth2'%>
+    
