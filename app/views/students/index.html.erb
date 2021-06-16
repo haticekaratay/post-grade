@@ -18,8 +18,10 @@ Welcome to <%= @course.name %> Class Gradebook
         <%= student.full_name %>
         </td>
         <% @assignments.each do |assignment| %>
-        <td><%= student.student_grade_by_assignment(assignment,student) %></td>
+        <td><%= student.student_grade_each_assignment(assignment,student) %></td>
         <% end %>
+        
+        <td><%=student.average(@assignments)%></td>
         <% end %> 
     </tr>
  </tbody>
