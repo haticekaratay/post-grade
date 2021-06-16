@@ -8,7 +8,7 @@ class Student < ApplicationRecord
         "#{self.first_name} #{self.last_name}"
     end
     
-    def student_grade_by_assignment(assignment,student)
+    def student_grade_each_assignment(assignment,student)
         student_grade_array = StudentAssignment.where(["assignment_id = #{assignment.id} and student_id = #{student.id}"])
         if student_grade_array.length == 0
             "N/A"
@@ -16,6 +16,25 @@ class Student < ApplicationRecord
             student_grade_array.first.grade
         end 
     end
+
+    
+    def student_assignment_total_grade
+        StudentAssignment.where("student_id =?", "#{self.id}").sum(:grade)
+    end   
+    
+    def assignments_total_max
+        total = 0
+        self.assignments.each do |assignment|
+            total += assignment.max
+        end
+        total
+    end
+
+    def average(assignments)
+        average = student_assignment_total_grade/assignment_total_max.to_f*100
+        average.to_i
+    end
+
     
 end
 
