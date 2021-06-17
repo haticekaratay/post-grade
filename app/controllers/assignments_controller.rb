@@ -4,22 +4,25 @@ class AssignmentsController < ApplicationController
     end
 
     def new
-        @courses= Course.all
         if params[:course_id]
             @assignment = Assignment.new(course_id: params[:course_id])
+            #binding.pry
+            @students = @assignment.course.students
         else
             @assignment = Assignment.new
         end
     end
 
     def create
-        @assignment = Assignment.new(assignment_params)
-        @courses = Course.all
+        #binding.pry
+        @course = Course.find(params[:course_id])
+        @assignment =  @course.assignments.build(assignment_params)
         if @assignment.save
             redirect_to assignment_path(@assignment)           
         else
             render :new
         end
+
     end
 
     def edit
@@ -58,6 +61,6 @@ class AssignmentsController < ApplicationController
     private
 
     def assignment_params
-        params.require(:assignment).permit(:name, :description, :max, :due_date,:course_id)
+        params.require(:assignment).permit(:name, :description, :max, :due_date, student_ids: [])
     end
 end
