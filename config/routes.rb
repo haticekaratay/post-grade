@@ -15,7 +15,7 @@ Rails.application.routes.draw do
      resources :students, only: :index
   end
   resources :courses do
-    resources :assignments, only: [:new, :index]
+    resources :assignments, only: [:new, :index, :create]
   end
   resources :teachers
   resources :assignments
