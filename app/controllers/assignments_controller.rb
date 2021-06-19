@@ -1,12 +1,12 @@
 class AssignmentsController < ApplicationController
     def show
+        #binding.pry
         @assignment = Assignment.find(params[:id])
     end
 
     def new
         if params[:course_id]
             @assignment = Assignment.new(course_id: params[:course_id])
-            #binding.pry
             @students = @assignment.course.students
         else
             @assignment = Assignment.new
@@ -14,11 +14,12 @@ class AssignmentsController < ApplicationController
     end
 
     def create
-        #binding.pry
+        binding.pry
         @course = Course.find(params[:course_id])
         @assignment =  @course.assignments.build(assignment_params)
+        #binding.pry
         if @assignment.save
-            redirect_to assignment_path(@assignment)           
+            redirect_to course_assignment_path(@course,@assignment)           
         else
             render :new
         end
@@ -26,16 +27,17 @@ class AssignmentsController < ApplicationController
     end
 
     def edit
-        @courses= Course.all
         @assignment = Assignment.find(params[:id])
+        @students = @assignment.students
     end
     
     def update
-        @courses= Course.all
+        @course = Course.find(params[:course_id])
         @assignment = Assignment.find(params[:id])
         @assignment.update(assignment_params)
+        #binding.pry
         if @assignment.valid?
-            redirect_to assignment_path(@assignment)
+            redirect_to course_assignments_path(@course)
         else
             render :edit
         end
