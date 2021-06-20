@@ -37,7 +37,7 @@ class AssignmentsController < ApplicationController
         @assignment.update(assignment_params)
         #binding.pry
         if @assignment.valid?
-            redirect_to course_assignments_path(@course)
+            redirect_to course_students_path(@course)
         else
             render :edit
         end
