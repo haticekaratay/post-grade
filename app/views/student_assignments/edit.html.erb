@@ -1,0 +1,9 @@
+
+    <h1><%= @student.full_name%> </h1>
+    <h2><%= @assignment.name %> </h2>
+<%= form_for :gradebook_object, url: update_student_grade_path(@student, @assignment) do |f| %>
+    <%= f.label :grade %>
+    <%= f.number_field :grade %>
+    <%= f.submit "Update Grade" %>
+    <% #binding.pry %>
+<% end %>
