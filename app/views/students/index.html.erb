@@ -22,7 +22,7 @@ Welcome to <%= @course.name %> Class Gradebook
         <td><%= link_to "#{student.assignment_grade(assignment,student)}", edit_student_student_assignment_path(student, assignment)%></td>
         <% end %>
         
-        <td><%=student.average(@assignments,student)%>-</td>
+        <td><%=student.average(@assignments,student)%>/<%= student.letter_grade(@assignments,student) %></td>
         <% end %> 
     </tr>
  </tbody>
