@@ -13,5 +13,21 @@
  *= require_tree .
  *= require_self
  */
-@import "bootstrap-sprockets";
-@import "bootstrap"; 
+ @import '../../../node_modules/bootstrap/scss/bootstrap';
+
+.dashboard{
+    height: 200px;
+    border: yellowgreen;
+    background-color: transparent;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #card {
+    height: 250px;
+    border: 1px solid #ccc;
+    background-color: #0ff5c8;
+    padding: 20px;
+    margin-bottom: 10px;
+  }
+ 
