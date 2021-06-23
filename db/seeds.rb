@@ -1,10 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
 
 Teacher.create(username:"Mrs.Science", email: "teacher1@email.com", password: "science")
 
@@ -15,7 +8,7 @@ Algebra =Course.create(name: "Algebra", description:"Algebra is the study of mat
 
 Student.create(first_name: "Selim", last_name: "Sessiz", grade_level:7, gender: "male", birthday: 12.years.ago, teacher_id:1) #1
 Student.create(first_name: "Pelin", last_name: "Bora", grade_level:7, gender: "female",birthday: 12.years.ago + 1.month , teacher_id:1) #2
-Student.create(first_name: "Ahmet", last_name: "Acik", grade_level:7, gender: "male", birthday: 12.years.ago + 3.months + 1.day, teacher_id:1, )   #3
+Student.create(first_name: "Ahmet", last_name: "Acik", grade_level:7, gender: "male", birthday: 12.years.ago + 3.months + 1.day, teacher_id:1)   #3
 Student.create(first_name: "Deniz", last_name: "Dolu", grade_level:7, gender: "male",birthday: 12.years.ago - 2.months + 1.day, teacher_id:1)   #4
 Student.create(first_name: "Derya", last_name: "Adanali", grade_level:7, gender: "female", birthday: 12.years.ago + 1.month + 10.days, teacher_id:1)  #5
 Student.create(first_name: "Ayse", last_name: "Bakar", grade_level:7, gender: "female", birthday: 12.years.ago + 4.months + 1.day, teacher_id:1)  #6
@@ -31,19 +24,26 @@ Student.create(first_name: "Cenk", last_name: "Toprak", grade_level:8, gender: "
 Student.create(first_name: "Emre", last_name: "Erkek", grade_level:8, gender: "male", birthday: 13.years.ago + 3.months + 1.day, teacher_id:1)
 Student.create(first_name: "Azra", last_name: "Bayan", grade_level:8, gender: "female", birthday: 13.years.ago + 3.months + 1.day, teacher_id:1)
 
+Student.create(first_name: "Cenk", last_name: "Peri", grade_level:8, gender: "male",birthday: 13.years.ago + 4.months + 4.days, teacher_id:1)   #10
+Student.create(first_name: "Cemile", last_name: "Su", grade_level:8, gender: "female",birthday: 13.years.ago + 1.months + 3.days, teacher_id:1)   #10
+Student.create(first_name: "Shems", last_name: "Sirin", grade_level:8, gender: "female",birthday: 13.years.ago + 3.months + 20.days, teacher_id:1)   #10
+Student.create(first_name: "Ali", last_name: "Veli", grade_level:8, gender: "male",birthday: 13.years.ago + 2.months + 19.days, teacher_id:1)   #10
+Student.create(first_name: "Cemil", last_name: "Kara", grade_level:8, gender: "male",birthday: 13.years.ago + 1.months + 9.days, teacher_id:1)   #10
+Student.create(first_name: "Sude", last_name: "Aycan", grade_level:8, gender: "female",birthday: 13.years.ago + 3.months + 20.days, teacher_id:1)   #10
+
+
 (1..10).each do |i|
     StudentCourse.create(student_id:"#{i}", course_id:1, prerequisite: false)
 end 
 
-StudentCourse.create(student_id:11, course_id:3, prerequisite: true)
-StudentCourse.create(student_id:12, course_id:3, prerequisite: true)
-StudentCourse.create(student_id:13, course_id:3, prerequisite: true)
+(11..18).each do |i|
+    StudentCourse.create(student_id:"#{i}", course_id:3, prerequisite: false)
+end 
 
-StudentCourse.create(student_id:11, course_id:2, prerequisite: false)
-StudentCourse.create(student_id:12, course_id:2, prerequisite: false)
-StudentCourse.create(student_id:13, course_id:2, prerequisite: false)
-StudentCourse.create(student_id:14, course_id:2, prerequisite: false)
-StudentCourse.create(student_id:15, course_id:2, prerequisite: false)
+(11..21).each do |i|
+    StudentCourse.create(student_id:"#{i}", course_id:2, prerequisite: false)
+end 
+
 Assignment.create(name:"Plant Cells Quiz", description:"Measures students learning on Plant Cells, Multiple choice.", due_date: 7.days.after, max: 20, assignment_type: "Quiz", course_id: 1)
 Assignment.create(name:"Plant Cells Lab Questions", description:"Complete the follow up questions on the lab package", due_date: 4.days.after, max: 20, assignment_type:"Homework" , course_id: 1)
 Assignment.create(name:"What you know about plants", description:"Measures students prior knowledge about plants.Students get a completion grade on this assignment", due_date: 10.days.ago, max: 10, assignment_type:"Classwork", course_id: 1)
@@ -67,47 +67,44 @@ end
     StudentAssignment.create(student_id:"#{i}", assignment_id:2, grade: 20 - i )
 end 
 
-(1..5).each do |i|
+(1..10).each do |i|
     StudentAssignment.create(student_id:"#{i}", assignment_id:3 , grade: 5 + i)
 end
-
-(6..10).each do |i|
-    StudentAssignment.create(student_id:"#{i}", assignment_id:3, grade: i, is_applicable?: false)
-end 
 
 (1..10).each do |i|
     StudentAssignment.create(student_id:"#{i}", assignment_id:4, grade: 10)
 end 
 
-
-(11..15).each do |i|
+#course2_assignments
+(11..21).each do |i|
     StudentAssignment.create(student_id:"#{i}", assignment_id:5 , grade: 20)
 end 
 
-(11..15).each do |i|
+(11..21).each do |i|
     StudentAssignment.create(student_id:"#{i}", assignment_id:6, grade: 18)
 end
 
-(11..15).each do |i|
+(11..21).each do |i|
     StudentAssignment.create(student_id:"#{i}", assignment_id:7, grade: 10)
 end
-(11..15).each do |i|
+(11..21).each do |i|
     StudentAssignment.create(student_id:"#{i}", assignment_id:8, grade: 9)
 end
-(11..15).each do |i|
+#course3_assignments
+(11..18).each do |i|
     StudentAssignment.create(student_id:"#{i}", assignment_id:9, grade: 20)
 end
 
-(11..15).each do |i|
+(11..18).each do |i|
     StudentAssignment.create(student_id:"#{i}", assignment_id:10 ,grade: 18)
 end
 
-(11..15).each do |i|
+(11..18).each do |i|
     StudentAssignment.create(student_id:"#{i}", assignment_id:11, grade: 9)
 end
 
-(11..15).each do |i|
-    StudentAssignment.create(student_id:"#{i}", assignment_id:12, grade: 80 + 2* i)
+(11..18).each do |i|
+    StudentAssignment.create(student_id:"#{i}", assignment_id:12, grade: 60 + 2* i)
 end
 
 
