@@ -10,6 +10,12 @@ Rails.application.routes.draw do
   get '/signup' => 'teachers#new'
   post '/signup' => 'teachers#create'
 
+  get '/statistics' => 'statistics#index'
+  
+  get "statistics_json" =>  "charts#statistics_json"
+
+  get "/courses/:id/statistics" => "statistics#index"
+
   resources :students
   post "/students/:student_id/assignments/:id" => "student_assignments#update", as: "update_student_grade"
   resources :courses do 
