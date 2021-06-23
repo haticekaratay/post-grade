@@ -14,4 +14,5 @@ Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 import "bootstrap"
+import "popper.js"
 import "../../assets/stylesheets/application.scss"
