@@ -1,7 +1,7 @@
 class ChartsController < ApplicationController
-    def new_statistics
+    def statistics_json
         @students = Student.all
-        render json: Course.first.students.group(:gender).count
+        render json: @students.group(:gender).count
         # respond_to do |format|
         #     format.html
         # end
