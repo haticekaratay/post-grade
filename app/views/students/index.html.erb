@@ -5,7 +5,7 @@ Welcome to <%= @course.name %> Class Gradebook
     <tr>
         <th scope="col">Student Name</th>
         <% @assignments.each do |assignment| %>
-            <th scope="col"><%= assignment.id %> - <%= assignment.name %>__/<%= assignment.max %></th>
+            <th scope="col"><%= assignment.id %> - <%= link_to "#{assignment.name}", course_assignment_path(@course,assignment)%>/<%= assignment.max %></th>
         <% end %>
         <th scope="col" >Average</th>
     </tr>
@@ -19,10 +19,10 @@ Welcome to <%= @course.name %> Class Gradebook
         </td>
         <% @assignments.each do |assignment| %>
         <%#<td><%=# link_to "#{student.student_grade_each_assignment(assignment,student)}", edit_course_student_path(assignment.course, student)%></td>
-        <td><%= link_to "#{student.assignment_grade(assignment,student)}", edit_student_student_assignment_path(student, assignment)%></td>
+        <td><%= link_to "#{student.assignment_grade(assignment)}", edit_student_student_assignment_path(student, assignment)%></td>
         <% end %>
         
-        <td><%=student.average(@assignments,student)%>/<%= student.letter_grade(@assignments,student) %></td>
+        <td><%=student.average(@assignments)%>/<%= student.letter_grade(@assignments) %></td>
         <% end %> 
     </tr>
  </tbody>

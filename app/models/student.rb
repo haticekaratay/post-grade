@@ -8,8 +8,8 @@ class Student < ApplicationRecord
         "#{self.first_name} #{self.last_name}"
     end
     
-    def assignment_grade(assignment,student)
-        student_assignment_array = StudentAssignment.where(["assignment_id = #{assignment.id} and student_id = #{student.id}"])
+    def assignment_grade(assignment)
+        student_assignment_array = StudentAssignment.where(["assignment_id = #{assignment.id} and student_id = #{self.id}"])
 
         if student_assignment_array.length == 0
             "N/A"
@@ -21,36 +21,39 @@ class Student < ApplicationRecord
        #byebug
     end
 
-    def average(assignments,student)
+    def average(assignments)
         student_score_total = 0
         max_score_total = 0
-        assignment_count = 0
-        assignments.each_with_index do |assignment,index|
-            if self.assignment_grade(assignment,student).is_a? Numeric
-                student_score_total += self.assignment_grade(assignment,student)
+        #binding.pry
+        assignments.each do |assignment|
+            if self.assignment_grade(assignment).is_a? Numeric
+                student_score_total += self.assignment_grade(assignment)
                 max_score_total += assignment.max
-                assignment_count = index
+                #binding.pry
             end
         end
-        average = student_score_total/max_score_total.to_f*100
-        average.round
+        #binding.pry
+        if max_score_total == 0
+            "Error"
+        else
+            average = student_score_total/max_score_total.to_f*100
+            average.round
+        end
     end
 
-    def letter_grade(assignments,student)
-        if average(assignments,student) >= 90
+    def letter_grade(assignments)
+        if average(assignments) >= 90
             "A"
-        elsif average(assignments,student) >= 80 && average(assignments,student) < 90
+        elsif average(assignments) >= 80 && average(assignments) < 90
             "B"
-        elsif average(assignments,student) >= 70 && average(assignments,student) < 80
+        elsif average(assignments) >= 70 && average(assignments) < 80
             "C"
-        elsif average(assignments,student) >= 60 && average(assignments,student) < 70
+        elsif average(assignments) >= 60 && average(assignments) < 70
             "D"
         else
             "F"
         end
     end
-
-
     
 end
 
