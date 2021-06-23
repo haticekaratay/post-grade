@@ -15,19 +15,15 @@
  */
  @import '../../../node_modules/bootstrap/scss/bootstrap';
 
-.dashboard{
-    height: 200px;
-    border: yellowgreen;
-    background-color: transparent;
-    margin-left: auto;
-    margin-right: auto;
-  }
+.card {
+  margin: 0 auto; /* Added */
+  float: none; /* Added */
+  margin-top: 50px; /* Added */
+}
 
-  #card {
-    height: 250px;
-    border: 1px solid #ccc;
-    background-color: #0ff5c8;
-    padding: 20px;
-    margin-bottom: 10px;
-  }
+.btn-primary.custom-btn {
+	background-color: #33D1FF;
+	border-color: #33D1FF;
+}
+
  
