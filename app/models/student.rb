@@ -54,6 +54,24 @@ class Student < ApplicationRecord
             "F"
         end
     end
+   
+    def self.course_grade_hash(course)
+        hash = Hash.new(0)
+        course.students.map do |student|
+            hash[student.letter_grade(course.assignments)] += 1
+        end
+        #binding.pry
+        hash
+    end
+
+    # def course_grade_hash(course,assignments,student)
+    #     course.students.inject(Hash.new(0)) do |hash, student |
+    #       hash[student.letter_grade(assignments,student)] += 1
+    #       hash
+    #     end   
+    # end
     
+
+
 end
 
