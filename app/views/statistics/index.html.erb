@@ -1,4 +1,17 @@
-<h1>GENDER</h1>
-<div>
-    <%= bar_chart new_statistics_path %>
+<div class="container ">
+        
+</div>
+
+<div class="container ">
+        <div class="row g-5">
+            <% @courses.each do |course| %>
+                <div class="col-sm">
+                    <%= bar_chart Student.course_grade_hash(course), width: "500px" , colors: ["#D30505", "#0ED305","#33ECFF" ], ytitle: "Final Grade", xtitle: "Number of Students", title: "#{course.name} "%>
+                </div>
+            <% end %>
+            <div class="col-sm">
+                <%= pie_chart statistics_json_path, width: "500px" , colors: ["#FF33FC", "#33ECFF"], xtitle: "Number of Students", title: "Number of students by Gender"%>
+            </div>
+        </div>
+        </div>
 </div>
