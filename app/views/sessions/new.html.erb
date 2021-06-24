@@ -1,16 +1,25 @@
-<div class="text-center">
+<body class="body-custom">
 
-  <%= form_for :teacher, url: login_path do |f| %>
-    <div class="form-signin">
-    <%= f.label :email %><br>
-    <%= f.text_field :email%><br>
+  <main class="form-signin">
+    <%= form_for :teacher, url: login_path do |f| %>
+    <h1 class="h3 mb-3 fw-normal" style="color: white">Please sign in</h1>
+    <div>
+      <p style="color: white">Email</p>
+      <div class="form-floating">
+        <%= f.text_field :email, placeholder: "Email", class: 'form-control'%>
+      </div>
     </div>
-    <%= f.label :password %><br>
-    <%= f.password_field :password%><br>
+    <br>
+    <div>
+      <p style="color: white">Password</p>
+      <div class="form-floating">
+        <%= f.password_field :password, placeholder: "Password", class: 'form-control' %>
+      </div>
+    </div>
+    <%= f.submit "Log In", class: "w-100 btn btn-lg btn-primary"%>
+    <% end %>
+    <br><%= button_to 'Continue with Gmail2', '/auth/google_oauth2', class: "w-100 btn btn-lg btn-secondary"%>
+    <p class="mt-5 mb-3 " style="color: white">&copy; 2020–2021</p>
 
-    <%= f.submit "Log In"%><br> 
-  <% end %>
-  <br><%= button_to 'Continue with Gmail', '/auth/google_oauth2'%>
-<div>
-
-    
+  </main>
+</body>
