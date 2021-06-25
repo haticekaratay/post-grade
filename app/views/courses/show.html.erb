@@ -1,4 +1,15 @@
-<h1>Welcome to <%=@course.name %> </h1>
+<h1 class= "text-center">Welcome to <%=@course.name %> </h1>
 <br>
-<%= @course.description %>
+<p class= "text-center"><%= @course.description %></p>
+<div class= "container">
+    <div class= "row justify-content-center">
+        <div class="col-4">
+            <div><%= image_tag "dashboard/course#{@course.id}.jpg", height: '250', width: '400'  %></div>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+<p class= "text-center" >There are <%= @course.students.length %> <%= link_to "students",course_students_path(@course)%> in this course.</p>
+
 
