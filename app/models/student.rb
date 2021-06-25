@@ -4,6 +4,8 @@ class Student < ApplicationRecord
     has_many :student_assignments
     has_many :assignments, through: :student_assignments
 
+    scope :sort_name, -> {order(first_name: :asc)}
+
     def full_name
         "#{self.first_name} #{self.last_name}"
     end
@@ -63,15 +65,6 @@ class Student < ApplicationRecord
         #binding.pry
         hash
     end
-
-    # def course_grade_hash(course,assignments,student)
-    #     course.students.inject(Hash.new(0)) do |hash, student |
-    #       hash[student.letter_grade(assignments,student)] += 1
-    #       hash
-    #     end   
-    # end
-    
-
 
 end
 
