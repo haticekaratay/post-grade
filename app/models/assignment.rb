@@ -12,5 +12,8 @@ class Assignment < ApplicationRecord
         StudentAssignment.where("assignment_id = ? ", "#{self.id}").count
     end
 
+    def date
+        self.due_date.strftime("%m/%d")
+    end
 
 end
