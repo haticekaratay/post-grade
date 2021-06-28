@@ -4,26 +4,26 @@
 <br>
   <main class="form-signin", style="color: white" >
     <%= form_for :teacher, url: login_path do |f| %>
-    <h1 class="h4 mb-3 fw-normal" style="color: white">PostGrade|  Signin</h1>
-    <div>
-      <p style="color: white">Email</p>
-      <div class="form-floating">
-        <%= f.text_field :email, placeholder: "Email", class: 'form-control'%>
+      <h1 class="h4 mb-3 fw-normal" style="color: white">PostGrade|  Signin</h1>
+      <div>
+        <p style="color: white">Email</p>
+        <div class="form-floating">
+          <%= f.email_field :email, class: 'form-control'%>
+        </div>
       </div>
-    </div>
-    <br>
-    <div>
-      <p style="color: white">Password</p>
-      <div class="form-floating">
-        <%= f.password_field :password, placeholder: "Password", class: 'form-control' %>
+      <br>
+      <div>
+        <p style="color: white">Password</p>
+        <div class="form-floating">
+          <%= f.password_field :password, class: 'form-control' %>
+        </div>
       </div>
-    </div>
-    <br>
-    <%= f.submit "Log In", class: "w-100 btn btn-lg btn-primary"%>
+      <br>
+      <%= f.submit "Signin", class: "w-100 btn btn-lg btn-primary"%>
     <% end %>
     <br><%= link_to 'Continue with Gmail', '/auth/google_oauth2',class: 'link-color'%>  
     <br><%= link_to "SignUp", signup_path, class: 'link-color'%>
-    <p class="mt-5 mb-3 " style="color: white">&copy; 2020–2021 by Hatice Karatay</p>
+    <p class="mt-5 mb-3 " style="color: white">&copy; 2021 Hatice Karatay</p>
 
   </main>
 </body>
