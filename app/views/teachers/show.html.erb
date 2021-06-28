@@ -1,6 +1,8 @@
 
 <div class="container ">
-       
+       <% if @teacher.courses.count == 0 %>
+            You have no assigned classes, yet. Please contact to school admin.
+        <% end %>
         <div class="row g-10">
         <% @teacher.courses.each do |course|%>
         
