@@ -17,7 +17,6 @@ Welcome to <%= @course.name %> Class Gradebook
         <%= student.full_name %>
         </td>
         <% @assignments.each do |assignment| %>
-        <%#<td><%=# link_to "#{student.student_grade_each_assignment(assignment,student)}", edit_course_student_path(assignment.course, student)%></td>
         <td><%= link_to "#{student.assignment_grade(assignment)}", edit_student_student_assignment_path(student, assignment), class: 'link-to-text-color'%>/<%= assignment.max %></td>
         <% end %>
         
