@@ -1,22 +1,13 @@
-<%#render partial: 'layouts/error', locals: {object: @assignment} %>
-<%#render 'form' %>
-<%= form_for @assignment, url: course_assignment_path(@assignment.course,@assignment) do |f| %>
-    <%= f.label :"Assignment Name" %>
-    <%= f.text_field  :name%>
-    
-    <%= f.label :description %>
-    <%= f.text_area :description%>
-
-    <%= f.label "Total" %>
-    <%= f.number_field  :max %>
-
-    <%= f.label :due_date %>
-    <%= f.date_field  :due_date%>
-
-    
-    
-    <p><%= f.label "Select students"%><br></p>
-    <%= f.collection_select :student_ids, @students, :id, :full_name,{include_blank: "Please Select from the list", include_hidden: false}, {multiple: true} %>
-    
-   <br> <%= f.submit %>
-<% end %>
+<%= render partial: 'layouts/error_messages', locals: {object: @assignment} %>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="text-center" >
+                <%= form_for @assignment, url: course_assignment_path(@assignment.course,@assignment) do |f| %>
+                    <%= render partial: 'form', locals: {f: f} %>
+                <br><%= f.submit%>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>
