@@ -1,8 +1,14 @@
-<% if object.errors.any? %>
-    <ul>
-        <% object.errors.full_messages.each do |error| %>
-        <li><%= error %></li>
-        <% end %>
-    </ul>
-    </div>
-<% end %> 
+<br>
+<br>
+<br>
+<div class="field_with_errors">
+    <% flash.each do |type, msg|%>
+        <ul>
+            <div class="alert alert-info" role="alert">
+                 <li><%= msg %></li>
+            </div>
+        </ul>
+    <% end %> 
+</div>
+
+
