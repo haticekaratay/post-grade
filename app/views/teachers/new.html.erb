@@ -1,14 +1,35 @@
-<div class="text-center">
-    <%= form_for @teacher do |f| %>
-        <%= f.label :username%><br>
-        <%= f.text_field :username%><br>
-
-        <%= f.label :email %><br>
-        <%= f.text_field :email%><br>
-
-        <%= f.label :password %><br>
-        <%= f.password_field :password%><br>
-
-        <%= f.submit 'Signup' %>
+<body class="body-custom">
+<br>
+<br>
+<br>
+  <main class="form-signin", style="color: white" >
+    <%= form_for :teacher do |f| %>
+    <h1 class="h4 mb-3 fw-normal" style="color: white">PostGrade|  Signin</h1>
+    <div>
+      <p style="color: white">Username</p>
+      <div class="form-floating">
+        <%= f.text_field :username, required: true, class: 'form-control'%>
+      </div>
+    </div>
+    <br>
+    <div>
+      <p style="color: white">Email</p>
+      <div class="form-floating">
+        <%= f.email_field :email, required: true, class: 'form-control'%>
+      </div>
+    </div>
+    <br>
+    <div>
+      <p style="color: white">Password</p>
+      <div class="form-floating">
+        <%= f.password_field :password, required: true, class: 'form-control' %>
+      </div>
+    </div>
+    <br>
+    <%= f.submit "Signin", class: "w-100 btn btn-lg btn-primary"%>
     <% end %>
-<div class="text-center">
+
+    <p class="mt-5 mb-3 " style="color: white">&copy; 2020–2021 by Hatice Karatay</p>
+
+  </main>
+</body>
