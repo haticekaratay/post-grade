@@ -1,2 +1,13 @@
-<%= render partial: 'layouts/error', locals: {object: @assignment} %>
-<%= render 'form' %>
+<%= render partial: 'layouts/error_messages', locals: {object: @assignment} %>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="text-center" >
+                <%= form_for @assignment, url: course_assignments_path(@assignment.course) do |f| %>
+                    <%= render partial: 'form', locals: {f: f} %>
+                <br><%= f.submit%>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>
