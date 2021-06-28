@@ -1,5 +1,16 @@
-
-<% @assignments.each do |assignment| %>
-   <%= link_to assignment.name, assignment_path(assignment) %>  -----  
-   <%= link_to "Edit ", edit_course_assignment_path(assignment.course,assignment) %>  <%= button_to "Delete", assignment_path(assignment), method: :delete %>
-<% end %>
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <ul>
+               <% @assignments.each do |assignment| %>
+                  <li>
+                     <%= assignment.name %>    
+                     <br><%= link_to "Edit ", edit_course_assignment_path(assignment.course,assignment), :class => "btn btn-secondary custom-btn" %>  <%= button_to "Delete", assignment_path(assignment), method: :delete ,  :class => "btn btn-primary custom-btn"%>
+                  </li><br>
+               <% end %>
+            </ul>
+         </div>
+      </div>
+   <div>
+<div>
