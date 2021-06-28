@@ -16,12 +16,11 @@ Rails.application.routes.draw do
 
   get "/courses/:id/statistics" => "statistics#index"
 
-  resources :students
   post "/students/:student_id/assignments/:id" => "student_assignments#update", as: "update_student_grade"
-  resources :courses do 
+  resources :courses, only: :show do 
      resources :students, only: [:index, :edit, :update, :show, :create]
   end
-  resources :courses do
+  resources :courses, only: :show  do
     resources :assignments, except: :destroy
   end
   
@@ -29,8 +28,6 @@ Rails.application.routes.draw do
     resources :student_assignments,  only: [:edit, :update]
   end
   
-  
-  resources :teachers
+  resources :teachers, only: :show
   resources :assignments
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
