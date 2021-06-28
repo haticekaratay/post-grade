@@ -1,20 +1,16 @@
-<%= form_for @assignment, url: course_assignments_path(@assignment.course) do |f| %>
-    <%= f.label :"Assignment Name" %>
-    <%= f.text_field  :name%>
+    <%= f.label :"Assignment Name" %><br>
+    <%= f.text_field  :name %><br>
     
-    <%= f.label :description %>
-    <%= f.text_area :description%>
+    <%= f.label :description %><br>
+    <%= f.text_area :description %><br>
 
-    <%= f.label "Total" %>
-    <%= f.number_field  :max %>
+    <%= f.label "Total" %><br>
+    <%= f.number_field  :max %><br>
 
-    <%= f.label :due_date %>
-    <%= f.date_field  :due_date%>
-
-    
+    <%= f.label :due_date %><br>
+    <%= f.date_field  :due_date %><br>
     
     <p><%= f.label "Select students"%><br></p>
     <%= f.collection_select :student_ids, @students, :id, :full_name,{include_blank: "Please Select from the list", include_hidden: false}, {multiple: true} %>
     
-   <br> <%= f.submit %>
-<% end %>
+  
