@@ -1,2 +1,11 @@
-<%= @assignment.name %> is assigned to 
-<%= @assignment.number_of_student_assigned %> students.
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <%= @assignment.name %> is assigned to 
+            <%= @assignment.number_of_student_assigned %> students.
+            <br><%= link_to "Edit ", edit_course_assignment_path(@assignment.course,@assignment), :class => "btn btn-secondary custom-btn" %> 
+            <%= button_to "Delete", assignment_path(@assignment), method: :delete ,  :class => "btn btn-primary custom-btn"%>
+        </div>
+    </div>
+</div>
