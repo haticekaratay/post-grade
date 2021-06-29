@@ -1,9 +1,12 @@
 class AssignmentsController < ApplicationController
-    include ApplicationHelper
     before_action :redirect_if_not_logged_in
+    before_action :redirect_if_not_authorized_to_view, except: :destroy
 
     def show
         @assignment = Assignment.find(params[:id])
+        # if @assignment.course.teacher_id != current_teacher.id
+        #     redirect_to teacher_path(current_teacher), alert: "You are not allowed to view this page"
+        # end
     end
 
     def new
@@ -19,7 +22,7 @@ class AssignmentsController < ApplicationController
         @assignment =  @course.assignments.build(assignment_params)
         @students = @course.students
             if @assignment.save
-            redirect_to course_students_path(@course), alert: 'Assignment is successfully created!'       
+            redirect_to course_students_path(@course), alert: "Assignment - #{@assignment.name} is successfully created!"      
         else
             render :new
         end
@@ -37,7 +40,7 @@ class AssignmentsController < ApplicationController
         @students = @assignment.students
         @assignment.update(assignment_params)
         if @assignment.valid?
-            redirect_to course_students_path(@course), alert: 'Assignment is successfully updated!'
+            redirect_to course_students_path(@course), alert: "Assignment - #{@assignment.name} is successfully updated!" 
         else
             render :edit
         end       
@@ -52,8 +55,11 @@ class AssignmentsController < ApplicationController
 
     def destroy
         @assignment = Assignment.find(params[:id])
+        if @assignment.course.teacher_id != current_teacher.id
+            redirect_to teacher_path(current_teacher), alert: "You don't have permission to delete this assignment."
+        end
         @assignment.destroy
-        redirect_to course_assignments_path(@assignment.course) , alert: 'Assignment is deleted!'
+        redirect_to course_assignments_path(@assignment.course) , alert: "Assignment #{@assignment.name} is deleted!"
     end
 
     private

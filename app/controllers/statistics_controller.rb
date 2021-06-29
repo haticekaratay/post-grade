@@ -1,6 +1,7 @@
 class StatisticsController < ApplicationController
+    before_action :redirect_if_not_logged_in
+
     def index
-        @students = Student.all
-        @courses = Course.all
+        @courses = current_teacher.courses
     end 
 end
