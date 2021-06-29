@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
     end
     
     def redirect_if_not_logged_in
-        redirect_to login_path, alert: "You must login first" if !logged_in?
+        redirect_to login_path, alert: "Please login first" if !logged_in?
     end
 
     def is_authorized?

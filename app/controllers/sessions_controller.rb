@@ -1,5 +1,7 @@
 class SessionsController < ApplicationController
     layout "login"
+    before_action :redirect_if_not_logged_in, only: :destroy
+    before_action :redirect_if_already_logged_in
     def home
     end
 
@@ -13,7 +15,7 @@ class SessionsController < ApplicationController
             session[:teacher_id] = @teacher.id
             redirect_to teacher_path(@teacher)
         else
-            redirect_to login_path , alert: 'Invalid Login!'
+            redirect_to login_path , alert: 'Invalid Login!Please try again.'
         end
     end
 
@@ -32,4 +34,11 @@ class SessionsController < ApplicationController
         redirect_to login_path , alert: "Successfully Logged Out!"
     end
 
+    private
+
+    def redirect_if_already_logged_in
+        if current_teacher
+            redirect_to teacher_path(current_teacher), alert: "You are already logged in. Log out before you make this request again. Redirected to your dashboard!"
+        end
+    end
 end

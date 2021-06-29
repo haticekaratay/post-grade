@@ -1,6 +1,5 @@
 class TeachersController < ApplicationController
-    include ApplicationHelper
-    before_action :redirect_if_not_logged_in, except: :new
+    before_action :redirect_if_not_logged_in, only: :show
     
     def new
         render :layout => "login"
