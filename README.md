@@ -1,8 +1,7 @@
 ## PostGrade
 PostGrade is a web app allowing teachers to create assignments, view those assignments, edit and delete them. While creating an assignment teachers can select students to be assigned.
 
-![Alt Text](app/assets/images/postgrade.gif)
-
+![Alt Text](app/assets/images/postgrade.gif?raw=true "Features")
 
 
 ### Installation
