@@ -1,12 +1,16 @@
 <div class="container ">
     <div class="row g-5">
-        <% @courses.each do |course| %>
-            <div class="col-sm">
-                <%= bar_chart Student.course_grade_hash(course), width: "500px" , colors: ["#D30505", "#0ED305","#33ECFF" ], ytitle: "Final Grade", xtitle: "Number of Students", title: "#{course.name} "%>
-            </div>
-        <% end %>
-            <div class="col-sm">
-                <%= pie_chart statistics_json_path, width: "500px" , colors: ["#FF33FC", "#33ECFF"], xtitle: "Number of Students", title: "Number of students by Gender"%>
-            </div>
-        </div>
+        <% if current_teacher.courses.length == 0 %>
+            <h4>There is no data to view.</h4>
+        <% else %>
+            <% @courses.each do |course| %>
+                <div class="col-sm">
+                    <%= bar_chart Student.course_grade_hash(course), width: "500px" , colors: ["#D30505", "#0ED305","#33ECFF" ], ytitle: "Final Grade", xtitle: "Number of Students", title: "#{course.name} "%>
+                </div>
+            <% end %>
+                <div class="col-sm">
+                    <%= pie_chart statistics_json_path, width: "500px" , title: "Number of students in each Course "%>
+                </div>
+        <% end %>   
+    </div>
 </div>
