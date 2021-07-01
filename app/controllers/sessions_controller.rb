@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
     layout "login"
     before_action :redirect_if_not_logged_in, only: :destroy
-    before_action :redirect_if_already_logged_in
+    before_action :redirect_if_already_logged_in, except: :destroy
     def home
     end
 
