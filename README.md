@@ -8,7 +8,7 @@ PostGrade is a web app allowing teachers to create assignments, view those assig
 
 * Install all the gems via 
    ``` 
-     $bundle install
+    $bundle install
    ```
  * Migrate database via
     ```
@@ -23,11 +23,11 @@ PostGrade is a web app allowing teachers to create assignments, view those assig
     $rails server
    ```
  * visit local host in your browser localhost:    
-   ```http://localhost:3000
-      http://127.0.0.1:3000
+  ``http://localhost:3000
+    http://127.0.0.1:3000
   ```
 
- ### Usage
+### Usage
  - The application welcomes you with a login page. Please use seed data to access full functinality of the app. 
  - After login, teacher's dashboard will display all courses that they are registered. From there users can navigate to course info page or gradebook to add assignments, to view grades of students by each course, or to create /update/delete an assignment.
 
