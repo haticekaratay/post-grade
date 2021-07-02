@@ -32,7 +32,8 @@ PostGrade is a web app allowing teachers to create assignments, view those assig
  - After login, teacher's dashboard will display all courses that they are registered. From there users can navigate to course info page or gradebook to add assignments, to view grades of students by each course, or to create /update/delete an assignment.
 
 ### Contributing
-This project is intendent to be safe, welcoming space of collaboration, and contributors are expected to adhere to the [Contributor Covenant](https://www.contributor-covenant.org) code of conduct.
+This project is intendent to be safe, welcoming space of collaboration, and contributors are expected to adhere to the Contributor Covenant[code of conduct](https://github.com/haticekaratay/post-grade/blob/main/CODE_OF_CONDUCT.md).
+
 ### License 
 This project has been licensed under the [MIT](https://github.com/haticekaratay/post-grade/blob/main/LICENSE) open source license.
 ### Acknowledgement
