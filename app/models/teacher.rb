@@ -7,9 +7,9 @@ class Teacher < ApplicationRecord
 
     def self.from_omniauth(response)
         Teacher.find_or_create_by(provider: response[:provider], uid: response[:uid]) do |t|
-            t.username = response['info']['name']
-            t.email = response['info']['email']
-            t.password = "passwordassignedrandomly#*40weqfnhiosd"
+            t.username = response[:info][:name]
+            t.email = response[:info][:email]
+            t.password = SecureRandom.hex(18)
         end
     end
 end
