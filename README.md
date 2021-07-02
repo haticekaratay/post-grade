@@ -23,8 +23,8 @@ PostGrade is a web app allowing teachers to create assignments, view those assig
     $rails server
    ```
  * visit local host in your browser localhost:    
-  ``http://localhost:3000
-    http://127.0.0.1:3000
+  ```
+    http://localhost:3000 
   ```
 
 ### Usage
