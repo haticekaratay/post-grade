@@ -1,12 +1,9 @@
 class AssignmentsController < ApplicationController
     before_action :redirect_if_not_logged_in
     before_action :redirect_if_not_authorized_to_view, except: :destroy
+    before_action :find_assignment, only: [:show,:edit,:update,:destroy]
 
     def show
-        @assignment = Assignment.find(params[:id])
-        # if @assignment.course.teacher_id != current_teacher.id
-        #     redirect_to teacher_path(current_teacher), alert: "You are not allowed to view this page"
-        # end
     end
 
     def new
@@ -30,13 +27,11 @@ class AssignmentsController < ApplicationController
     end
 
     def edit
-        @assignment = Assignment.find(params[:id])
         @students = @assignment.students
     end
     
     def update
         @course = Course.find(params[:course_id])
-        @assignment = Assignment.find(params[:id])
         @students = @assignment.students
         @assignment.update(assignment_params)
         if @assignment.valid?
@@ -54,7 +49,6 @@ class AssignmentsController < ApplicationController
     end 
 
     def destroy
-        @assignment = Assignment.find(params[:id])
         if @assignment.course.teacher_id != current_teacher.id
             redirect_to teacher_path(current_teacher), alert: "You don't have permission to delete this assignment."
         end
@@ -68,4 +62,7 @@ class AssignmentsController < ApplicationController
         params.require(:assignment).permit(:name, :description, :max, :due_date, student_ids: [])
     end
 
+    def find_assignment
+        @assignment = Assignment.find(params[:id])
+    end
 end

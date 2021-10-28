@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  root 'sessions#home'
+  #root 'sessions#home'
+  root 'sessions#new'
 
   get 'auth/:provider/callback' => 'sessions#create_with_google_omniauth'
 

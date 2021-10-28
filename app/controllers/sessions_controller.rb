@@ -1,8 +1,6 @@
 class SessionsController < ApplicationController
     layout "login"
 
-    def home
-    end
 
     def new
         @teacher = Teacher.new
