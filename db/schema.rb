@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2021_06_11_211108) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "assignments", force: :cascade do |t|
     t.string "name"
     t.string "description"
@@ -20,22 +23,22 @@ ActiveRecord::Schema.define(version: 2021_06_11_211108) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "max"
-    t.integer "course_id"
+    t.bigint "course_id"
     t.index ["course_id"], name: "index_assignments_on_course_id"
   end
 
   create_table "courses", force: :cascade do |t|
     t.string "name"
     t.string "description"
-    t.integer "teacher_id", null: false
+    t.bigint "teacher_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["teacher_id"], name: "index_courses_on_teacher_id"
   end
 
   create_table "student_assignments", force: :cascade do |t|
-    t.integer "student_id", null: false
-    t.integer "assignment_id", null: false
+    t.bigint "student_id", null: false
+    t.bigint "assignment_id", null: false
     t.boolean "is_applicable?", default: true
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -45,8 +48,8 @@ ActiveRecord::Schema.define(version: 2021_06_11_211108) do
   end
 
   create_table "student_courses", force: :cascade do |t|
-    t.integer "student_id", null: false
-    t.integer "course_id", null: false
+    t.bigint "student_id", null: false
+    t.bigint "course_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "prerequisite", default: false
@@ -62,7 +65,7 @@ ActiveRecord::Schema.define(version: 2021_06_11_211108) do
     t.string "gender"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "teacher_id", null: false
+    t.bigint "teacher_id", null: false
     t.index ["teacher_id"], name: "index_students_on_teacher_id"
   end
 
