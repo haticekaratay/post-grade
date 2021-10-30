@@ -4,7 +4,7 @@
 <br>
   <main class="form-signin", style="color: white" >
     <%= form_for :teacher do |f| %>
-    <h1 class="h4 mb-3 fw-normal" style="color: white">PostGrade|  Signin</h1>
+    <h1 class="h4 mb-3 fw-normal" style="color: white">PostGrade|  Sign Up</h1>
     <div>
       <p style="color: white">Username</p>
       <div class="form-floating">
@@ -26,9 +26,9 @@
       </div>
     </div>
     <br>
-    <%= f.submit "Signin", class: "w-100 btn btn-lg btn-primary"%>
+    <%= f.submit "Sign Up", class: "w-100 btn btn-lg btn-primary"%>
     <% end %>
-
+    <br><%= link_to "Login", login_path, class: 'link-color'%>
     <p class="mt-5 mb-3 " style="color: white">&copy; 2020–2021 by Hatice Karatay</p>
 
   </main>
